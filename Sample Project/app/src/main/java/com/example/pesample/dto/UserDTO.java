@@ -7,15 +7,21 @@ public class UserDTO {
     private String fullName;
     private String role;
 
-    public UserDTO(int id, String username, String fullName, String role) {
-        this.id = id;
+    public UserDTO(String username, String fullName, String role) {
         this.username = username;
         this.fullName = fullName;
         this.role = role;
     }
 
+    public UserDTO() {
+    }
+
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {

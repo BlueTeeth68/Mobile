@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.pesample.database.DBHelper;
 import com.example.pesample.dto.UserDTO;
 
+@SuppressWarnings("unused")
 public class UserDAO {
 
     private SQLiteDatabase db;
@@ -25,7 +26,7 @@ public class UserDAO {
         dbHelper.close();
     }
 
-    public boolean AddUser(UserDTO user) {
+    public boolean addUser(UserDTO user) {
         ContentValues cv = new ContentValues();
         cv.put(dbHelper.COL_TB1_FULL_NAME, user.getFullName());
         cv.put(dbHelper.COL_TB1_USERNAME, user.getUsername());
@@ -89,5 +90,9 @@ public class UserDAO {
             result.moveToFirst();
         }
         return result;
+    }
+
+    public void clearData() {
+        db.execSQL("Delete from " + dbHelper.TABLE_1_NAME);
     }
 }
