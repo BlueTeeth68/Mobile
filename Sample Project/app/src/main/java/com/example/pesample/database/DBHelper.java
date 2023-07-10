@@ -11,21 +11,21 @@ public class DBHelper extends SQLiteOpenHelper {
     //context
     private Context context;
     //Database name here
-    private static final String DB_NAME = "BookManagement.db";
-    private static final int DB_VERSION = 1;
+    public static final String DB_NAME = "BookManagement.db";
+    public static final int DB_VERSION = 1;
 
-    private static final String TABLE_1_NAME = "user";
-    private static final String COL_TB1_ID = "_id";
-    private static final String COL_TB1_USERNAME = "username";
-    private static final String COL_TB1_PASSWORD = "password";
-    private static final String COL_TB1_FULL_NAME = "full_name";
-    private static final String COL_TB1_ROLE = "role";
+    public static final String TABLE_1_NAME = "user";
+    public static final String COL_TB1_ID = "_id";
+    public static final String COL_TB1_USERNAME = "username";
+    public static final String COL_TB1_PASSWORD = "password";
+    public static final String COL_TB1_FULL_NAME = "full_name";
+    public static final String COL_TB1_ROLE = "role";
 
-    private static final String TABLE_2_NAME = "book";
-    private static final String COL_TB2_ID = "_id";
-    private static final String COL_TB2_BOOK_NAME = "book_name";
-    private static final String COL_TB2_BOOK_AUTHOR = "book_author";
-    private static final String COL_TB2_BOOK_PAGES = "book_pages";
+    public static final String TABLE_2_NAME = "book";
+    public static final String COL_TB2_ID = "_id";
+    public static final String COL_TB2_BOOK_NAME = "book_name";
+    public static final String COL_TB2_BOOK_AUTHOR = "book_author";
+    public static final String COL_TB2_BOOK_PAGES = "book_pages";
 
     public DBHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
