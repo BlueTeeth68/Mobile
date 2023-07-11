@@ -28,13 +28,22 @@ public class HomeActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         userDAO = new UserDAO(this);
-        userDAO.open();
+
+        userAdapter = new UserAdapter(HomeActivity.this, getAllAccount());
+        recyclerView.setAdapter(userAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(HomeActivity.this));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         userAdapter = new UserAdapter(HomeActivity.this, getAllAccount());
         recyclerView.setAdapter(userAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(HomeActivity.this));
     }
 
     private List<UserDTO> getAllAccount() {
+        userDAO.open();
         List<UserDTO> result = new ArrayList<>();
         Cursor cursor = userDAO.findAll();
         if (cursor.moveToFirst()) {
@@ -59,6 +68,7 @@ public class HomeActivity extends AppCompatActivity {
         if (!cursor.isClosed()) {
             cursor.close();
         }
+        userDAO.close();
         return result;
     }
 }

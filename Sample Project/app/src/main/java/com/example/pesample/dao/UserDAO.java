@@ -86,10 +86,25 @@ public class UserDAO {
                 selectionArg,
                 null, null, null);
 
-        if(result != null) {
+        if (result != null) {
             result.moveToFirst();
         }
         return result;
+    }
+
+    public boolean updateUser(String id, String username, String fullName, String role) {
+        ContentValues cv = new ContentValues();
+        cv.put(DBHelper.COL_TB1_USERNAME, username);
+        cv.put(DBHelper.COL_TB1_FULL_NAME, fullName);
+        cv.put(DBHelper.COL_TB1_ROLE, role);
+        String where = DBHelper.COL_TB1_ID + " = ? ";
+        String[] whereArg = new String[]{id};
+        long result = db.update(DBHelper.TABLE_1_NAME, cv, where, whereArg);
+        if (result > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void clearData() {

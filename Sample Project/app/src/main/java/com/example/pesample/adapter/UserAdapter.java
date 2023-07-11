@@ -1,6 +1,7 @@
 package com.example.pesample.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pesample.R;
+import com.example.pesample.UpdateActivity;
 import com.example.pesample.dto.UserDTO;
 
 import java.util.ArrayList;
@@ -56,6 +58,15 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             usernameText = itemView.findViewById(R.id.user_name_text);
             fullNameText = itemView.findViewById(R.id.full_name_text);
             roleText = itemView.findViewById(R.id.role_text);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), UpdateActivity.class);
+                    intent.putExtra("id", userIdText.getText());
+                    v.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }
