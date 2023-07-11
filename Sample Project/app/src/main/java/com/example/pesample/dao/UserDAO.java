@@ -107,6 +107,18 @@ public class UserDAO {
         }
     }
 
+    public boolean deleteById(String id) {
+        String where = DBHelper.COL_TB1_ID + " = ?";
+        String[] whereArg = new String[]{id};
+        int result = db.delete(DBHelper.TABLE_1_NAME, where, whereArg);
+        if(result >= 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
     public void clearData() {
         db.execSQL("Delete from " + dbHelper.TABLE_1_NAME);
     }
