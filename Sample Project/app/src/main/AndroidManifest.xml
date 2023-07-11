@@ -27,6 +27,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name=".provider.UserProvider"
+            android:authorities="com.example.pesample.provider" />
     </application>
+
 
 </manifest>
